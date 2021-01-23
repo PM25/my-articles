@@ -1,6 +1,6 @@
 # Deep Learning with Keras
 
-Pin-Yen•2019-09-04
+Pin-Yen • 2019-09-04
 
 ---
 
