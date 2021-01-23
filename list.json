@@ -1,4 +1,10 @@
 {
     "base_url": "https://pm25.github.io/my-articles/",
-    "paths": ["Computer-Science/deep-learning-with-keras.md"]
+    "articles": [
+        {
+            "name": "Deep Learning with Keras",
+            "path": "Computer-Science/deep-learning-with-keras.md",
+            "preview": "This is the slides from my talk at the University of Illinois at Urbana-Champaign (UIUC). A super simple introduction to deep learning and also demonstrate how to use python package ..."
+        }
+    ]
 }
