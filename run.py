@@ -22,24 +22,29 @@ def markdown_preview(md, kwords):
     return " ".join(text.split()[:50])
 
 
-def update(dic, save_name):
+def update(lst, save_name):
     folders = [f for f in Path("./").iterdir() if f.is_dir() and f.name[0] != "."]
+    names = [item["name"] for item in lst]
     updated_files = []
     for folder in folders:
         for path in folder.glob("*.md"):
             name = path.stem
             name = " ".join(name.split("-"))
-            if name not in dic:
-                dic[name] = {
-                    "path": str(path),
-                    "date": formatted_date(),
-                    "preview": markdown_path_preview(path, 50),
-                }
+            if name not in names:
+                lst.insert(
+                    0,
+                    {
+                        "name": name,
+                        "path": str(path.as_posix()),
+                        "date": formatted_date(),
+                        "preview": markdown_path_preview(path, 50),
+                    },
+                )
                 updated_files.append(name)
     with open(save_name, "w") as ofile:
-        json.dump(dic, ofile, indent=4)
+        json.dump(lst, ofile, indent=4)
 
-    print(f"Updated Files: {updated_files}")
+    print(f"Updated {len(updated_files)} Files: {updated_files}")
     print("*Update Complete!")
 
 
@@ -48,9 +53,9 @@ if __name__ == "__main__":
     if Path(fname).exists():
         with open("list.json", "r") as infile:
             try:
-                dic = json.load(infile)
-                update(dic, fname)
+                lst = json.load(infile)
+                update(lst, fname)
             except:
                 print("*Broken file")
     else:
-        update({}, fname)
+        update([], fname)
