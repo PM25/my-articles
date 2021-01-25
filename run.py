@@ -22,7 +22,7 @@ def markdown_preview(md, kwords):
     return " ".join(text.split()[:50]) + "..."
 
 
-def update(lst, save_name):
+def update_list(lst, save_name):
     folders = [f for f in Path("./").iterdir() if f.is_dir() and f.name[0] != "."]
     names = [item["name"] for item in lst]
     updated_files = []
@@ -48,14 +48,51 @@ def update(lst, save_name):
     print("*Update Complete!")
 
 
-fname = "list.json"
-if __name__ == "__main__":
+def update_dict(dic, save_name):
+    folders = [f for f in Path("./").iterdir() if f.is_dir() and f.name[0] != "."]
+    updated_files = []
+    for folder in folders:
+        for path in folder.glob("*.md"):
+            name = path.stem
+            name = " ".join(name.split("-"))
+            if name not in dic.keys():
+                dic[name] = {
+                    "name": name,
+                    "path": str(path.as_posix()),
+                    "date": formatted_date(),
+                    "preview": markdown_path_preview(path, 50),
+                }
+                updated_files.append(name)
+
+    with open(save_name, "w") as ofile:
+        json.dump(dic, ofile, indent=4)
+
+    print(f"Updated {len(updated_files)} Files: {updated_files}")
+    print("*Update Complete!")
+
+
+def update(fname, target="list"):
+    print("-" * 5)
+    print(f"*Updating {fname}")
     if Path(fname).exists():
-        with open("list.json", "r") as infile:
-            try:
-                lst = json.load(infile)
-                update(lst, fname)
-            except:
-                print("*Broken file")
+        infile = open(fname, "r")
+        try:
+            jsn = json.load(infile)
+            if target == "list":
+                update_list(jsn, fname)
+            elif target == "dict":
+                update_dict(jsn, fname)
+        except:
+            print("*Broken file")
     else:
-        update([], fname)
+        if target == "list":
+            update_list([], fname)
+        elif target == "dict":
+            update_dict({}, fname)
+
+
+lfname = "list.json"
+dfname = "dict.json"
+if __name__ == "__main__":
+    update(lfname, "list")
+    update(dfname, "dict")

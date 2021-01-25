@@ -1,0 +1,14 @@
+{
+    "Deep Learning with Keras": {
+        "name": "Deep Learning with Keras",
+        "path": "Computer-Science/Deep-Learning-with-Keras.md",
+        "date": "2019-09-04",
+        "preview": "Introduction This is the slides from my talk at the University of Illinois at Urbana-Champaign (UIUC). A super simple introduction to deep learning and also demonstrate how to use python package \"Keras\" to actully implement a neural network. Regression Introduction Classification MNIST Source Code https://github.com/PM25/Deep_Learning_Tutorial References..."
+    },
+    "Survey of Fact Verification in FEVER Dataset": {
+        "name": "Survey of Fact Verification in FEVER Dataset",
+        "path": "Computer-Science/Survey-of-Fact-Verification-in-FEVER-Dataset.md",
+        "date": "2021-01-25",
+        "preview": "1. FEVER: a Large-scale Dataset for Fact Extraction and VERification June 2018 https://www.aclweb.org/anthology/N18-1074/ 2. Towards Debiasing Fact Verification Models Nov. 2019 https://www.aclweb.org/anthology/D19-1341/ 3. Reasoning Over Semantic-Level Graph for Fact Checking July 2020 https://www.aclweb.org/anthology/2020.acl-main.549/..."
+    }
+}
