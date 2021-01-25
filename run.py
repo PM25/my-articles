@@ -19,7 +19,7 @@ def markdown_path_preview(path, kwords=50):
 def markdown_preview(md, kwords):
     html = markdown(md)
     text = "".join(BeautifulSoup(html, "html.parser").findAll(text=True))
-    return " ".join(text.split()[:50])
+    return " ".join(text.split()[:50]) + "..."
 
 
 def update(lst, save_name):
