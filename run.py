@@ -29,7 +29,7 @@ def update_list(lst, save_name):
     for folder in folders:
         for path in folder.glob("*.md"):
             name = path.stem
-            name = " ".join(name.split("-"))
+            name = name.replace("-", " ")
             if name not in names:
                 lst.insert(
                     0,
