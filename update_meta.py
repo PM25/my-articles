@@ -18,6 +18,9 @@ def update_all():
         with open(out_path, "w") as f:
             json.dump(data, f, indent=4)
 
+    print(f"Save total of {len(index_data)} files.")
+
 
 if __name__ == "__main__":
+    print("[Update Meta]")
     update_all()

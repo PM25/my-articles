@@ -43,7 +43,7 @@ def update_single_folder(index_data, folder_path):
                 "path": str(fname.as_posix()),
                 "created_date": created_date,
                 "last_modified": formatted_date,
-                "preview": markdown_text_preview(fname, kwords=50),
+                "preview": markdown_text_preview(fname, max_char=250),
                 "md5": file_md5,
             }
             modified_file.append(name)
@@ -73,6 +73,7 @@ def update_all():
     print("[All folders]")
     print(f"Add {len(new_files)} new files.")
     print(f"Modified {len(modified_files)} files.")
+    print("=" * 25)
     if len(new_files) + len(modified_files) > 0:
         print("[Updating Index]")
         with open(index_file, "w") as f:
@@ -82,4 +83,5 @@ def update_all():
 
 
 if __name__ == "__main__":
+    print("[Update Index]")
     update_all()

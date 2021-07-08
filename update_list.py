@@ -1,5 +1,6 @@
 import json
 from pathlib import Path
+from datetime import datetime
 
 from utils import load_json
 
@@ -9,26 +10,32 @@ def update_single_folder(data, folder, k=10):
     out_folder = Path("index") / folder
     out_folder.mkdir(parents=True, exist_ok=True)
 
+    data = sorted(data, key=lambda d: d["created_date"], reverse=True)
+
     out = []
     for datum in data:
+        created_time = datum["created_date"]
+        date_time_obj = datetime.strptime(created_time, "%Y/%m/%d %H:%M:%S")
+        created_date = date_time_obj.strftime("%Y/%m/%d")
         out.append(
             {
                 "name": datum["title"],
-                "created_date": datum["created_date"],
+                "created_date": created_date,
                 "preview": datum["preview"],
             }
         )
 
-    out = sorted(out, key=lambda d: d["created_date"])
-
     # split "out" by each part has at most k element
-    for idx in range((len(out) - 1) // k + 1):
+    num_split = (len(out) - 1) // k + 1
+    for idx in range(num_split):
         fname = out_folder / f"list_{idx}.json"
         out_slice = out[idx * k : min((idx + 1) * k, len(out))]
 
         with open(fname, "w") as f:
             json.dump(out_slice, f, indent=4)
 
+    print(f"- Save total of {len(out)} articles to {num_split} files.")
+    print(f"- Files: list_0.json ~ list_{num_split-1}.json")
     print("=" * 25)
 
 
@@ -51,4 +58,5 @@ def update_all():
 
 
 if __name__ == "__main__":
+    print("[Update List]")
     update_all()
