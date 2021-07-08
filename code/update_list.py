@@ -2,7 +2,7 @@ import json
 from pathlib import Path
 from datetime import datetime
 
-from utils import load_json
+from code.utils import load_json
 
 
 def update_single_folder(data, folder, k=10):
@@ -54,7 +54,7 @@ def update_all():
         folders[folder].append(data)
 
     for folder, data in folders.items():
-        update_single_folder(data, folder)
+        update_single_folder(data, Path(folder).stem)
 
 
 if __name__ == "__main__":

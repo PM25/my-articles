@@ -1,7 +1,7 @@
 import json
 from pathlib import Path
 
-from utils import load_json
+from code.utils import load_json
 
 
 def update_all():
