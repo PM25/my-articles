@@ -1,98 +1,110 @@
 import json
+import hashlib
 from pathlib import Path
 from datetime import date
 from bs4 import BeautifulSoup
 from markdown import markdown
 
 
-def formatted_date():
+def get_formatted_date():
     today = date.today()
     return today.strftime("%Y-%m-%d")
 
 
-def markdown_path_preview(path, kwords=50):
+def markdown_text_preview(path, kwords=50):
     with open(path, "r") as f:
         md = f.read()
-    return markdown_preview(md, kwords)
 
-
-def markdown_preview(md, kwords):
     html = markdown(md)
     text = "".join(BeautifulSoup(html, "html.parser").findAll(text=True))
-    return " ".join(text.split()[:50]) + "..."
+    preview_text = " ".join(text.split()[:kwords]) + "..."
+
+    return preview_text
 
 
-def update_list(lst, save_name):
-    folders = [f for f in Path("./").iterdir() if f.is_dir() and f.name[0] != "."]
-    names = [item["name"] for item in lst]
-    updated_files = []
-    for folder in folders:
-        for path in folder.glob("*.md"):
-            name = path.stem
-            name = name.replace("-", " ")
-            if name not in names:
-                lst.insert(
-                    0,
-                    {
-                        "name": name,
-                        "path": str(path.as_posix()),
-                        "date": formatted_date(),
-                        "preview": markdown_path_preview(path, 50),
-                    },
-                )
-                updated_files.append(name)
-    with open(save_name, "w") as ofile:
-        json.dump(lst, ofile, indent=4)
+def calc_file_md5(fname):
+    with open(fname, "rb") as f:
+        data = f.read()
+    file_md5 = hashlib.md5(data).hexdigest()
 
-    print(f"Updated {len(updated_files)} Files: {updated_files}")
-    print("*Update Complete!")
+    return file_md5
 
 
-def update_dict(dic, save_name):
-    folders = [f for f in Path("./").iterdir() if f.is_dir() and f.name[0] != "."]
-    updated_files = []
-    for folder in folders:
-        for path in folder.glob("*.md"):
-            name = path.stem
-            name = " ".join(name.split("-"))
-            if name not in dic.keys():
-                dic[name] = {
-                    "name": name,
-                    "path": str(path.as_posix()),
-                    "date": formatted_date(),
-                    "preview": markdown_path_preview(path, 50),
-                }
-                updated_files.append(name)
+def update_single_folder(folder_path):
+    folder_path = Path(folder_path)
+    assert folder_path.exists()
 
-    with open(save_name, "w") as ofile:
-        json.dump(dic, ofile, indent=4)
+    Path("index").mkdir(parents=True, exist_ok=True)
+    index_file = Path("index") / f"{folder_path}.json"
+    minified_index_file = Path("index") / f"{folder_path}-minified.json"
 
-    print(f"Updated {len(updated_files)} Files: {updated_files}")
-    print("*Update Complete!")
-
-
-def update(fname, target="list"):
-    print("-" * 5)
-    print(f"*Updating {fname}")
-    if Path(fname).exists():
-        infile = open(fname, "r")
-        try:
-            jsn = json.load(infile)
-            if target == "list":
-                update_list(jsn, fname)
-            elif target == "dict":
-                update_dict(jsn, fname)
-        except:
-            print("*Broken file")
+    if index_file.exists():
+        with open(index_file, "r") as f:
+            index_data = json.load(f)
     else:
-        if target == "list":
-            update_list([], fname)
-        elif target == "dict":
-            update_dict({}, fname)
+        index_data = {"sort-by-date": []}
+
+    hash_file = Path("index") / "hash.json"
+    if hash_file.exists():
+        with open(hash_file, "r") as f:
+            hash_data = json.load(f)
+    else:
+        hash_data = {}
+
+    new_file, modified_file = [], []
+    for fname in folder_path.glob("*.md"):
+        name = fname.stem
+        name = name.replace("-", " ")
+        formatted_date = get_formatted_date()
+        file_md5 = calc_file_md5(fname)
+
+        if name not in index_data.keys():
+            print(f"New file: {fname}")
+            index_data[name] = {
+                "path": str(fname.as_posix()),
+                "created_date": formatted_date,
+                "last_modified": formatted_date,
+                "preview": markdown_text_preview(fname, kwords=50),
+            }
+            hash_data[name] = file_md5
+            index_data["sort-by-date"].append(name)
+            new_file.append(name)
+
+        elif file_md5 != hash_data[name]:
+            print(f"Modified file: {fname}")
+            created_date = index_data[name]["created_date"]
+            index_data[name] = {
+                "path": str(fname.as_posix()),
+                "created_date": created_date,
+                "last_modified": formatted_date,
+                "preview": markdown_text_preview(fname, kwords=50),
+            }
+            hash_data[name] = file_md5
+            modified_file.append(name)
+
+    if len(new_file) + len(modified_file) > 0:
+        with open(index_file, "w") as f:
+            json.dump(index_data, f, indent=4)
+
+        with open(minified_index_file, "w") as f:
+            json.dump(index_data, f, separators=(",", ":"))
+
+        with open(hash_file, "w") as f:
+            json.dump(hash_data, f, indent=4)
+
+    print(f"Add {len(new_file)} new files.")
+    print(f"Modified {len(modified_file)} files.")
 
 
-lfname = "list.json"
-dfname = "dict.json"
+def update_all():
+    folders = [
+        f
+        for f in Path("./").iterdir()
+        if f.is_dir() and f.name[0] != "." and f.stem != "index"
+    ]
+    for folder in folders:
+        update_single_folder(folder)
+
+
 if __name__ == "__main__":
-    update(lfname, "list")
-    update(dfname, "dict")
+    update_all()
