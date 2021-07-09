@@ -1,0 +1,10 @@
+{
+    "title": "Deep Learning with Keras",
+    "file_name": "Deep-Learning-with-Keras.md",
+    "folder": "articles/computer-science",
+    "path": "articles/computer-science/Deep-Learning-with-Keras.md",
+    "created_date": "2019/09/04 00:00:00",
+    "last_modified": "2019/09/04 00:00:00",
+    "preview": "This is the slides from my talk at the University of Illinois at Urbana-Champaign (UIUC). A super simple introduction to deep learning and also demonstrate how to use python package \"Keras\" to actully implement a neural...",
+    "md5": "8ca0192367357c2952fa0ec5fb88b4c8"
+}
