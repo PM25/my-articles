@@ -1,6 +1,6 @@
 ## Introduction
 
-Machine learning and deep learning show have huge impacts on many different areas in the past decades. They both are data-driven approaches, which means they need a bunch of data to make it work. But in reality, some data are very expensive or very hard to acquire. For example, fraud detection, where fraud samples are much difficult to obtain than the normal data. Medical images require doctors or people with medical expertise to label, which are very expensive and time-consuming. Insufficient data hurt the performance of deep learning and machine learning, which makes it a critical issue to be solved. There are many ongoing types of research trying to tackle this problem, like one-shot learning, active learning, transfer learning, and many others more. These are just the tips of the iceberg. Data augmentation is also one of them. Many data augmentation strategies are quite naive and simple but yet researches show they give a robust improvement in many different tasks. Mixup is one of the data augmentation strategies that shed the light on in recent years, which also inspire many following works to come out. In this article, I will give a quick introduction to different mixup-based data augmentation strategies.
+Machine learning and deep learning have show huge impacts on many areas in the past decades. They both are data-driven approaches, which means they need a bunch of data to make it work. But in reality, some data are very expensive or very hard to acquire. For example, fraud detection, where fraud samples are much difficult to obtain than the normal data. Medical images require doctors or people with medical expertise to label, which are very expensive and time-consuming. Insufficient data hurt the performance of deep learning and machine learning, which makes it a critical issue to be solved. There are many ongoing types of research trying to tackle this problem, like one-shot learning, active learning, transfer learning, and many others more. These are just the tips of the iceberg. Data augmentation is also one of them. Many data augmentation strategies are quite naive and simple but yet researches show they give a robust improvement in many different tasks. Mixup is one of the data augmentation strategies that shed the light on in recent years, which also inspire many following works to come out. In this article, I will give a quick introduction to different mixup-based data augmentation strategies.
 
 ## What is data augmentation?
 
@@ -13,7 +13,7 @@ Some of the simplest forms of data augmentation are rotation, crop, blur, or app
     src="https://imgur.com/GXzRum7.png"
     alt="Different Data Augmentation Techniques">
     <figcaption align = "center"> 
-    Source: <a>https://arxiv.org/pdf/2002.05709.pdf</a>
+    source: <a href="https://arxiv.org/pdf/2002.05709.pdf">arxiv.org/pdf/2002.05709.pdf</a>
     </figcaption>
 </figure>
 

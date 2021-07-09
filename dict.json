@@ -1,8 +1,0 @@
-{
-    "Deep Learning with Keras": {
-        "name": "Deep Learning with Keras",
-        "path": "Computer-Science/Deep-Learning-with-Keras.md",
-        "date": "2019-09-04",
-        "preview": "Introduction This is the slides from my talk at the University of Illinois at Urbana-Champaign (UIUC). A super simple introduction to deep learning and also demonstrate how to use python package \"Keras\" to actully implement a neural network. Regression Introduction Classification MNIST Source Code https://github.com/PM25/Deep_Learning_Tutorial References..."
-    }
-}
