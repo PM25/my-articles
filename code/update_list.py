@@ -34,6 +34,9 @@ def update_single_folder(data, folder, k=10):
         with open(fname, "w") as f:
             json.dump(out_slice, f, indent=4)
 
+    with open(out_folder / "meta.json", "w") as f:
+        json.dump({"num_files": num_split}, f, indent=4)
+
     print(f"- Save total of {len(out)} articles to {num_split} files.")
     print(f"- Files: list_0.json ~ list_{num_split-1}.json")
     print("=" * 25)

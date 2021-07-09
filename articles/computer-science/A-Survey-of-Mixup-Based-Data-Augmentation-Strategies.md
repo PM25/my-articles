@@ -1,6 +1,6 @@
 ## Introduction
 
-Machine learning and deep learning show huge impacts on many different areas in the past decades. They both are data-driven approaches, which means they need a bunch of data to make it work or even to get better performance. But in reality, some data are very expensive or very hard to acquire. For example, fraud detection, where fraud samples are much difficult to obtain than the normal data. Medical images require doctors or people with medical expertise to label, which are very expensive and time-consuming. Insufficient data hurt the performance of deep learning and machine learning, which makes it a critical issue to be solved. There are many ongoing types of research trying to tackle this problem, like one-shot learning, active learning, transfer learning, and many others more. These are just the tips of the iceberg. Data augmentation is also one of them. Many data augmentation strategies are quite naive and simple but yet researches show they give a robust improvement in many different tasks. Mixup is one of the data augmentation strategies that shed the light on in recent years, which also inspire many following works to come out. In this article, I will give a quick introduction to different mixup-based data augmentation strategies.
+Machine learning and deep learning show have huge impacts on many different areas in the past decades. They both are data-driven approaches, which means they need a bunch of data to make it work. But in reality, some data are very expensive or very hard to acquire. For example, fraud detection, where fraud samples are much difficult to obtain than the normal data. Medical images require doctors or people with medical expertise to label, which are very expensive and time-consuming. Insufficient data hurt the performance of deep learning and machine learning, which makes it a critical issue to be solved. There are many ongoing types of research trying to tackle this problem, like one-shot learning, active learning, transfer learning, and many others more. These are just the tips of the iceberg. Data augmentation is also one of them. Many data augmentation strategies are quite naive and simple but yet researches show they give a robust improvement in many different tasks. Mixup is one of the data augmentation strategies that shed the light on in recent years, which also inspire many following works to come out. In this article, I will give a quick introduction to different mixup-based data augmentation strategies.
 
 ## What is data augmentation?
 
@@ -13,7 +13,7 @@ Some of the simplest forms of data augmentation are rotation, crop, blur, or app
     src="https://imgur.com/GXzRum7.png"
     alt="Different Data Augmentation Techniques">
     <figcaption align = "center"> 
-    Source: https://arxiv.org/pdf/2002.05709.pdf
+    Source: <a>https://arxiv.org/pdf/2002.05709.pdf</a>
     </figcaption>
 </figure>
 
@@ -31,22 +31,22 @@ Here are the quick survey of each mixup-based data augmentation strategies.
 
 Ongoing...
 
-arxiv: https://arxiv.org/abs/1710.09412
-github: https://github.com/facebookresearch/mixup-cifar10
+Arxiv: [https://arxiv.org/abs/1710.09412](https://arxiv.org/abs/1710.09412)
+Github: [https://github.com/facebookresearch/mixup-cifar10](https://github.com/facebookresearch/mixup-cifar10)
 
 ### CutMix
 
 Ongoing...
 
-arxiv: https://arxiv.org/abs/1905.04899
-github: https://github.com/clovaai/CutMix-PyTorch
+arxiv: [https://arxiv.org/abs/1905.04899](https://arxiv.org/abs/1905.04899)
+github: [https://github.com/clovaai/CutMix-PyTorch](https://github.com/clovaai/CutMix-PyTorch)
 
 ### Manifold Mixup
 
 Ongoing...
 
-arxiv: https://arxiv.org/abs/1806.05236
-github: https://github.com/vikasverma1077/manifold_mixup
+arxiv: [https://arxiv.org/abs/1806.05236](https://arxiv.org/abs/1806.05236)
+github: [https://github.com/vikasverma1077/manifold_mixup](https://github.com/vikasverma1077/manifold_mixup)
 
 ### PatchUp
 
