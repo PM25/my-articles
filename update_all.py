@@ -1,9 +1,11 @@
 from code import update_index, update_list, update_meta
 
 print("=[Update Index]=")
-new_files, modified_files = update_index.update_all(article_folder="articles")
+new_files, modified_files, deleted_files = update_index.update_all(
+    article_folder="articles"
+)
 
-if len(new_files) + len(modified_files) > 0:
+if len(new_files) + len(modified_files) + len(deleted_files) > 0:
     print("\n=[Update List]=")
     update_list.update_all()
 

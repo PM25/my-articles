@@ -1,4 +1,5 @@
 import json
+import shutil
 from pathlib import Path
 
 from code.utils import load_json
@@ -9,6 +10,7 @@ def update_all():
     index_data = load_json(index_file, {})
 
     meta_folder = Path("index") / "meta"
+    shutil.rmtree(meta_folder)
     meta_folder.mkdir(parents=True, exist_ok=True)
 
     for title_name, data in index_data.items():

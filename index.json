@@ -1,15 +1,15 @@
 {
-    "A Survey of Mixup Based Data Augmentation Strategies": {
-        "title": "A Survey of Mixup Based Data Augmentation Strategies",
-        "file_name": "A-Survey-of-Mixup-Based-Data-Augmentation-Strategies.md",
+    "A-Survey-of-Mixup_Based-Data-Augmentation-Strategies": {
+        "title": "A Survey of Mixup-Based Data Augmentation Strategies",
+        "file_name": "A-Survey-of-Mixup_Based-Data-Augmentation-Strategies.md",
         "folder": "articles/computer-science",
-        "path": "articles/computer-science/A-Survey-of-Mixup-Based-Data-Augmentation-Strategies.md",
+        "path": "articles/computer-science/A-Survey-of-Mixup_Based-Data-Augmentation-Strategies.md",
         "created_date": "2021/07/08 13:00:00",
-        "last_modified": "2021/07/10 02:30:57",
+        "last_modified": "2021/07/11 21:19:28",
         "preview": "Machine learning and deep learning have show huge impacts on many areas in the past decades. They both are data-driven approaches, which means they need a bunch of data to make it work. But in reality, some data are very expensive or very hard to...",
         "md5": "4094b669dc12ca113c7e1889ebdf6079"
     },
-    "Deep Learning with Keras": {
+    "Deep-Learning-with-Keras": {
         "title": "Deep Learning with Keras",
         "file_name": "Deep-Learning-with-Keras.md",
         "folder": "articles/computer-science",

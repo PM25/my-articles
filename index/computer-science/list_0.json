@@ -1,11 +1,11 @@
 [
     {
-        "name": "A Survey of Mixup Based Data Augmentation Strategies",
+        "name": "A-Survey-of-Mixup_Based-Data-Augmentation-Strategies",
         "created_date": "2021/07/08",
         "preview": "Machine learning and deep learning have show huge impacts on many areas in the past decades. They both are data-driven approaches, which means they need a bunch of data to make it work. But in reality, some data are very expensive or very hard to..."
     },
     {
-        "name": "Deep Learning with Keras",
+        "name": "Deep-Learning-with-Keras",
         "created_date": "2019/09/04",
         "preview": "This is the slides from my talk at the University of Illinois at Urbana-Champaign (UIUC). A super simple introduction to deep learning and also demonstrate how to use python package \"Keras\" to actully implement a neural..."
     }

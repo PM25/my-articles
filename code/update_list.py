@@ -1,4 +1,5 @@
 import json
+import shutil
 from pathlib import Path
 from datetime import datetime
 
@@ -8,6 +9,7 @@ from code.utils import load_json
 def update_single_folder(data, folder, k=10):
     print(f"[{folder}]")
     out_folder = Path("index") / folder
+    shutil.rmtree(out_folder)
     out_folder.mkdir(parents=True, exist_ok=True)
 
     data = sorted(data, key=lambda d: d["created_date"], reverse=True)
