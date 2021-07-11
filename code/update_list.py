@@ -21,6 +21,7 @@ def update_single_folder(data, folder, k=10):
         created_date = date_time_obj.strftime("%Y/%m/%d")
         out.append(
             {
+                "id": datum["id"],
                 "name": datum["title"],
                 "created_date": created_date,
                 "preview": datum["preview"],
@@ -49,9 +50,9 @@ def update_all():
     index_data = load_json(index_file, {})
 
     folders = {}
-    for title_name, data in index_data.items():
+    for _id, data in index_data.items():
         folder = data["folder"]
-        data["title"] = title_name
+        data["id"] = _id
 
         if folder not in folders:
             folders[folder] = []
