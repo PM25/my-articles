@@ -1,5 +1,11 @@
 [
     {
+        "id": "An-Introduction-to-Semi-Supervised-Learning",
+        "name": "An Introduction to Semi Supervised Learning",
+        "created_date": "2021/12/24",
+        "preview": "..."
+    },
+    {
         "id": "A-Survey-of-Mixup_Based-Data-Augmentation-Strategies",
         "name": "A Survey of Mixup-Based Data Augmentation Strategies",
         "created_date": "2021/07/08",
