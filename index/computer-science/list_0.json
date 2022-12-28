@@ -1,7 +1,13 @@
 [
     {
-        "id": "An-Introduction-to-Semi-Supervised-Learning",
-        "name": "An Introduction to Semi Supervised Learning",
+        "id": "A-Brief-Introduction-to-Imbalanced-Learning",
+        "name": "A Brief Introduction to Imbalanced Learning",
+        "created_date": "2022/12/28",
+        "preview": "..."
+    },
+    {
+        "id": "A-Brief-Introduction-to-Semi-Supervised-Learning",
+        "name": "A Brief Introduction to Semi Supervised Learning",
         "created_date": "2021/12/24",
         "preview": "..."
     },

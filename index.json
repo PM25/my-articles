@@ -1,4 +1,24 @@
 {
+    "A-Brief-Introduction-to-Imbalanced-Learning": {
+        "title": "A Brief Introduction to Imbalanced Learning",
+        "file_name": "A-Brief-Introduction-to-Imbalanced-Learning.md",
+        "folder": "articles/computer-science",
+        "path": "articles/computer-science/A-Brief-Introduction-to-Imbalanced-Learning.md",
+        "created_date": "2022/12/28 10:25:21",
+        "last_modified": "2022/12/28 10:40:39",
+        "preview": "...",
+        "md5": "d3330e6a452e4775b6a2b7bd8afe0267"
+    },
+    "A-Brief-Introduction-to-Semi-Supervised-Learning": {
+        "title": "A Brief Introduction to Semi Supervised Learning",
+        "file_name": "A-Brief-Introduction-to-Semi-Supervised-Learning.md",
+        "folder": "articles/computer-science",
+        "path": "articles/computer-science/A-Brief-Introduction-to-Semi-Supervised-Learning.md",
+        "created_date": "2021/12/24 01:43:37",
+        "last_modified": "2022/12/28 10:40:39",
+        "preview": "...",
+        "md5": "6bd85ed9a5cd16e7cd7a7b174edab29d"
+    },
     "A-Survey-of-Mixup_Based-Data-Augmentation-Strategies": {
         "title": "A Survey of Mixup-Based Data Augmentation Strategies",
         "file_name": "A-Survey-of-Mixup_Based-Data-Augmentation-Strategies.md",
@@ -8,16 +28,6 @@
         "last_modified": "2021/07/11 21:19:28",
         "preview": "Machine learning and deep learning have show huge impacts on many areas in the past decades. They both are data-driven approaches, which means they need a bunch of data to make it work. But in reality, some data are very expensive or very hard to...",
         "md5": "4094b669dc12ca113c7e1889ebdf6079"
-    },
-    "An-Introduction-to-Semi-Supervised-Learning": {
-        "title": "An Introduction to Semi Supervised Learning",
-        "file_name": "An-Introduction-to-Semi-Supervised-Learning.md",
-        "folder": "articles/computer-science",
-        "path": "articles/computer-science/An-Introduction-to-Semi-Supervised-Learning.md",
-        "created_date": "2021/12/24 01:43:37",
-        "last_modified": "2021/12/24 01:43:37",
-        "preview": "...",
-        "md5": "902d18fa4daad4a3a89193e5da5709fd"
     },
     "Deep-Learning-with-Keras": {
         "title": "Deep Learning with Keras",
